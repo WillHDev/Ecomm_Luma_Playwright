@@ -1,0 +1,1 @@
+await expect(page).toHaveURL(/.*#edit/);
