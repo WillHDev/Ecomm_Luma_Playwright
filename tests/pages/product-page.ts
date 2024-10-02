@@ -6,8 +6,24 @@ export class ProductPage {
  
   constructor(page: Page) {
     this.page = page;
-    this.cart =  this.page.locator('[data-block="minicart"]').locator('[href="https://magento.softwaretestingboard.com/checkout/cart/"]');
-  
+    
+    //this.cart =  this.page.locator('a[class="action showcart"]');
+    this.cart =  this.page.locator('a.action.showcart');
+
 }
+
+
+async addJupiterJacketToCart() {
+    await this.username.fill(username);
+    await this.password.fill(password);
+    await this.submitBtn.click();
+}
+
+
+// await productPage.page.goto('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html');
+// const jacket = await productPage.page.locator('li:has-text("Montana Wind Jacket")');
+// await jacket.locator('[option-label="S"]').click();
+// await jacket.locator('[aria-label="Green"]').click();
+// await jacket.locator('button:has-text("Add to Cart")').click();
 
 }

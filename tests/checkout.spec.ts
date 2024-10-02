@@ -11,13 +11,8 @@ test('Navigate to Mens Section', async ({ homePage }) => {
 
 test('Add item to cart', async ({ productPage }) => {
 
+  test.setTimeout(45000);
   await productPage.page.goto('https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html');
-  const jacket = await productPage.page.locator('li:has-text("Montana Wind Jacket")');
-  await jacket.locator('[option-label="S"]').click();
-  await jacket.locator('[aria-label="Green"]').click();
-  await jacket.locator('button:has-text("Add to Cart")').click();
-  
-  //const sweater = await page.getByRole('listitem', { name: 'Jupiter All-Weather Trainer '});
 
   const sweater = await productPage.page.locator('li:has-text("Jupiter All-Weather Trainer ")');
   await sweater.locator('[option-label="M"]').click();
@@ -37,8 +32,7 @@ test('Add item to cart', async ({ productPage }) => {
   await productPage.page.getByRole('button', { name: 'OK' }).click();
 
   await expect(productPage.page.getByText('1', { exact: true }).nth(2)).toHaveText('1');
-  
-  test.setTimeout(45000);
+
 });
 
 
